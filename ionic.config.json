@@ -1,0 +1,7 @@
+{
+  "name": "m12-commerce-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
