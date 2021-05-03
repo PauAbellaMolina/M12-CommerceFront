@@ -1,0 +1,38 @@
+<div class="background positioning">
+</div>
+<ion-grid class="positioning content">
+  <ion-row class="p-5 ion-justify-content-center">
+    <ion-col size="4">
+        <div class="commerceImg"></div>
+    </ion-col>
+    <ion-col size="8" class="userInfo">
+      <p>Pau Abella Molina</p>
+      <p>47 punts</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
+      <ion-col size="12">
+          <h1>{{ amount }}€</h1>
+          <h4>que equivalent a</h4>
+          <h2>{{ points }}</h2>
+          <h3>punts</h3>
+      </ion-col>
+      <ion-col size="12" class="buttons ion-justify-content-center">
+        <ion-button (click)="cancel()" class="cancelar">X</ion-button>
+        <ion-button class="confirmar">Confirmar</ion-button>
+      </ion-col>
+      <!-- <ion-col size="6">
+          <p class="sectionLabel">Horari:</p>
+          <p class="sectionDescription">{{ commerce.schedule }}</p>
+      </ion-col>
+      <ion-col size="6">
+          <p class="sectionLabel">Contacte:</p>
+          <p class="sectionDescription">{{ commerce.phone }}</p>
+          <p class="sectionDescription">{{ commerce.email }}</p>
+      </ion-col>
+      <ion-col size="12">
+          <p class="sectionLabel sectionLabelBig">Punts del comerç</p>
+          <div class="pointsSquare">{{ commerce.total_points }}</div>
+      </ion-col> -->
+  </ion-row>
+</ion-grid>

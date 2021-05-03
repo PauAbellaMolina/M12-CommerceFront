@@ -1,0 +1,91 @@
+.h-100 {
+  height: 100%;
+}
+.p-5 {
+  padding: .4em;
+}
+.pt-0 {
+  padding-top: 0;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+.p-content {
+  padding: 0 1.1em 0 1.1em;
+}
+
+.background {
+  background-color: #C4C4C4;
+  opacity: 1;
+}
+
+.content {
+  overflow-y: auto;
+  color: black;
+}
+
+.positioning {
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  height: 90%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px 20px 0 0;
+}
+
+.commerceImg {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  border-radius: 17px;
+}
+
+.userInfo {
+  font-size: 20px;
+}
+
+.transactionInfo ion-col:first-child {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, h2, h3{
+  margin: 3px 0 0 0;
+  font-family: 'Rubik Mono One', sans-serif;
+}
+
+h4 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+.buttons {
+  display: flex;
+  position: absolute;
+  bottom: .8em;
+}
+
+.buttons ion-button {
+  --border-radius: 20px;
+}
+
+.confirmar {
+  width: 70%;
+  height: 90px;
+}
+
+.cancelar {
+  width: 25%;
+  height: 90px;
+}
