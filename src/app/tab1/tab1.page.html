@@ -22,8 +22,8 @@
     </ion-row>
   </ion-grid>
 
-  <div *ngIf="data">
-    <app-confirm-popup (onCancel)="cancelTransaction()" [amount]="inputValue"></app-confirm-popup>
+  <div *ngIf="data && data.text != ''">
+    <app-confirm-popup (onCancel)="cancelTransaction()" [amount]="inputValue" [data]="data.text"></app-confirm-popup>
   </div>
   <!-- <ion-card>
     <ion-card-content>

@@ -1,38 +1,72 @@
 <div class="background positioning">
 </div>
-<ion-grid class="positioning content">
+<!-- If transaction is not done yet -->
+<ion-grid *ngIf="confirmed == 0" class="positioning content">
   <ion-row class="p-5 ion-justify-content-center">
     <ion-col size="4">
         <div class="commerceImg"></div>
     </ion-col>
     <ion-col size="8" class="userInfo">
-      <p>Pau Abella Molina</p>
-      <p>47 punts</p>
+      <p>{{ user?.name }} {{ user?.surname }}</p>
+      <p>{{ userPoints }} punts</p>
     </ion-col>
   </ion-row>
   <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
       <ion-col size="12">
-          <h1>{{ amount }}€</h1>
-          <h4>que equivalent a</h4>
-          <h2>{{ points }}</h2>
-          <h3>punts</h3>
+        <h1>{{ amount }}€</h1>
+        <h4>que equivalent a</h4>
+        <h2>{{ points }}</h2>
+        <h3>punts</h3>
       </ion-col>
       <ion-col size="12" class="buttons ion-justify-content-center">
-        <ion-button (click)="cancel()" class="cancelar">X</ion-button>
-        <ion-button class="confirmar">Confirmar</ion-button>
+        <ion-button (click)="cancel()" class="cancelar"><fa-icon [icon]="faTimes" size="3x"></fa-icon></ion-button>
+        <ion-button *ngIf="!user" class="confirmar" disabled="true">Confirmar</ion-button>
+        <ion-button *ngIf="user && buttonOn" (click)="confirm()" class="confirmar">Confirmar</ion-button>
+        <ion-button *ngIf="user && !buttonOn" class="confirmar" disabled="true">Confirmar</ion-button>
       </ion-col>
-      <!-- <ion-col size="6">
-          <p class="sectionLabel">Horari:</p>
-          <p class="sectionDescription">{{ commerce.schedule }}</p>
-      </ion-col>
-      <ion-col size="6">
-          <p class="sectionLabel">Contacte:</p>
-          <p class="sectionDescription">{{ commerce.phone }}</p>
-          <p class="sectionDescription">{{ commerce.email }}</p>
-      </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- If transaction is correct -->
+<ion-grid *ngIf="confirmed == 1" class="positioning content">
+  <ion-row class="p-5 ion-justify-content-center">
+    <ion-col size="4">
+        <div class="commerceImg"></div>
+    </ion-col>
+    <ion-col size="8" class="userInfo">
+      <p>{{ user?.name }} {{ user?.surname }}</p>
+      <p>{{ userPoints }} punts</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
       <ion-col size="12">
-          <p class="sectionLabel sectionLabelBig">Punts del comerç</p>
-          <div class="pointsSquare">{{ commerce.total_points }}</div>
-      </ion-col> -->
+        <fa-icon [icon]="faCheck" size="6x"></fa-icon>
+        <h3 style="text-align: center;">Guardat correctament</h3>
+      </ion-col>
+      <ion-col size="12" class="buttons ion-justify-content-center">
+        <ion-button (click)="cancel()" class="cancelarBig"><fa-icon [icon]="faTimes" size="3x"></fa-icon></ion-button>
+      </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- If transaction is incorrect -->
+<ion-grid *ngIf="confirmed == 2" class="positioning content">
+  <ion-row class="p-5 ion-justify-content-center">
+    <ion-col size="4">
+        <div class="commerceImg"></div>
+    </ion-col>
+    <ion-col size="8" class="userInfo">
+      <p>{{ user?.name }} {{ user?.surname }}</p>
+      <p>{{ userPoints }} punts</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
+      <ion-col size="12">
+        <fa-icon [icon]="faBug" size="6x"></fa-icon>
+        <h3 style="text-align: center;">Error inesperat, torna-hi</h3>
+      </ion-col>
+      <ion-col size="12" class="buttons ion-justify-content-center">
+        <ion-button (click)="cancel()" class="cancelarBig"><fa-icon [icon]="faTimes" size="3x"></fa-icon></ion-button>
+      </ion-col>
   </ion-row>
 </ion-grid>

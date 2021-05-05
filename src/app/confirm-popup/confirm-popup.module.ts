@@ -6,8 +6,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { ConfirmPopupComponent } from './confirm-popup.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
-  imports: [ CommonModule, FormsModule, IonicModule],
+  imports: [ CommonModule, FormsModule, IonicModule, FontAwesomeModule],
   declarations: [ConfirmPopupComponent],
   exports: [ConfirmPopupComponent]
 })

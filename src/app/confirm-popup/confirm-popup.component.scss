@@ -77,15 +77,22 @@ h2 {
 }
 
 .buttons ion-button {
-  --border-radius: 20px;
+  --border-radius: 18px;
 }
 
 .confirmar {
   width: 70%;
   height: 90px;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 1.4em;
+  // font-weight: bolder;
 }
 
 .cancelar {
   width: 25%;
+  height: 90px;
+}
+.cancelarBig {
+  width: 95%;
   height: 90px;
 }
