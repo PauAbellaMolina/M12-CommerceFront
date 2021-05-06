@@ -4,11 +4,13 @@
 <ion-grid *ngIf="confirmed == 0" class="positioning content">
   <ion-row class="p-5 ion-justify-content-center">
     <ion-col size="4">
-        <div class="commerceImg"></div>
+        <div class="profilePictureParent">
+          <img *ngIf="user" class="profilePicture" src="data:image/png;base64,{{ user?.picture }}" alt="{{ user?.name }}" />
+        </div>
     </ion-col>
     <ion-col size="8" class="userInfo">
-      <p>{{ user?.name }} {{ user?.surname }}</p>
-      <p>{{ userPoints }} punts</p>
+      <span class="userNames">{{ user?.name }} {{ user?.surname }}</span>
+      <span>{{ userPoints }} punts</span>
     </ion-col>
   </ion-row>
   <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
@@ -31,11 +33,13 @@
 <ion-grid *ngIf="confirmed == 1" class="positioning content">
   <ion-row class="p-5 ion-justify-content-center">
     <ion-col size="4">
-        <div class="commerceImg"></div>
+      <div class="profilePictureParent">
+        <img *ngIf="user" class="profilePicture" src="data:image/png;base64,{{ user?.picture }}" alt="{{ user?.name }}" />
+      </div>
     </ion-col>
     <ion-col size="8" class="userInfo">
-      <p>{{ user?.name }} {{ user?.surname }}</p>
-      <p>{{ userPoints }} punts</p>
+      <span class="userNames">{{ user?.name }} {{ user?.surname }}</span>
+      <span>{{ userPoints }} punts</span>
     </ion-col>
   </ion-row>
   <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
@@ -53,11 +57,13 @@
 <ion-grid *ngIf="confirmed == 2" class="positioning content">
   <ion-row class="p-5 ion-justify-content-center">
     <ion-col size="4">
-        <div class="commerceImg"></div>
+      <div class="profilePictureParent">
+        <img *ngIf="user" class="profilePicture" src="data:image/png;base64,{{ user?.picture }}" alt="{{ user?.name }}" />
+      </div>
     </ion-col>
     <ion-col size="8" class="userInfo">
-      <p>{{ user?.name }} {{ user?.surname }}</p>
-      <p>{{ userPoints }} punts</p>
+      <span class="userNames">{{ user?.name }} {{ user?.surname }}</span>
+      <span>{{ userPoints }} punts</span>
     </ion-col>
   </ion-row>
   <ion-row class="transactionInfo p-5 pt-0 p-content ion-justify-content-center">
