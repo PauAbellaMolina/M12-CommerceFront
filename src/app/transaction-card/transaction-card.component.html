@@ -1,0 +1,19 @@
+  <ion-grid>
+    <div class="background positioning">
+      <!-- <ion-row class="h-100 p-5 ion-justify-content-center" @click="() => router.push('tab2')"> -->
+      <ion-row class="h-100 p-5 ion-justify-content-center">
+        <ion-col size="3">
+            <div class="profilePictureParent">
+              <img *ngIf="userInfo" class="profilePicture" src="data:image/png;base64,{{ userInfo?.picture }}" alt="{{ userInfo?.name }}" />
+            </div>
+        </ion-col>
+        <ion-col size="9" class="transactionInfo">
+            <h3>{{ userInfo?.name }} {{ userInfo?.surname }}</h3>
+            <div class="transactionInfoDetails">
+              <span class="points"><strong>{{ transaction?.points }}</strong> punts</span>
+              <span class="date">{{ transaction?.created_at | date : 'd/M/YYYY' }}</span>
+            </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>

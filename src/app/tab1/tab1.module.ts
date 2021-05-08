@@ -13,7 +13,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ConfirmPopupComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
   ],
   declarations: [Tab1Page]
 })

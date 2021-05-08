@@ -40,7 +40,7 @@ export class ConfirmPopupComponent implements OnInit {
           this.user = data['res'];
 
           //When user info fetched, fetch their points of that commerce
-          fetch(environment.API_URL+"/points/"+data['res'].id+"/1")
+          fetch(environment.API_URL+"/points/"+data['res'].id+"/"+environment.commerceId)
             .then(async response => {
               const data = await response.json();
               this.userPoints = data['res'].points;
@@ -64,14 +64,14 @@ export class ConfirmPopupComponent implements OnInit {
   confirm() {
     this.buttonOn = false; //Disable the confirmar button
 
-    fetch(environment.API_URL+"/points/"+this.user.id+"/1/"+this.points, { method: 'POST' })
+    fetch(environment.API_URL+"/points/"+this.user.id+"/"+environment.commerceId+"/"+this.points, { method: 'POST' })
       .then(async response => {
         const data = await response.json();
         if(data['status'] == 1) {
           this.confirmed = 1;
 
           // Recall to update the points of the user with the new added ones
-          fetch(environment.API_URL+"/points/"+this.user.id+"/1")
+          fetch(environment.API_URL+"/points/"+this.user.id+"/"+environment.commerceId)
             .then(async response => {
               const data = await response.json();
               this.userPoints = data['res'].points;
