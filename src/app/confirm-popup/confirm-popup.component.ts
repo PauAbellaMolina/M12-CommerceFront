@@ -29,7 +29,7 @@ export class ConfirmPopupComponent implements OnInit {
 
   ngOnInit() {
     this.confirmed = 0;
-    this.points = this.amount*2;
+    this.points = this.amount*3; //Relacio diners gastats - punts
     this.buttonOn = true;
 
     //Fetch user info

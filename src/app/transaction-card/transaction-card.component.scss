@@ -6,8 +6,8 @@
 }
 
 .background {
-  background-color: #C4C4C4;
-  opacity: 0.7;
+  background-color: #3b3b3b;
+  // opacity: 0.8;
 }
 
 :host {
@@ -47,14 +47,15 @@
 }
 
 h3{
-  color: black;
+  color: white;
   margin: 8px 0 0 0;
   font-weight: 900;
   // font-family: 'Rubik Mono One', sans-serif;
 }
 
 span.points {
-  color: black;
+  // color: black;
+  color: rgb(202, 202, 202);
   font-size: 18px;
   font-weight: 700;
 }
@@ -62,14 +63,8 @@ span.points strong {
   font-weight: 900;
 }
 span.date {
-  color: rgb(63, 63, 63);
+  // color: rgb(63, 63, 63);
+  color: rgb(124, 124, 124);
   font-size: 15px;
   font-weight: 700;
-}
-
-p {
-  font-size: 14px;
-  margin: 3px 0 0 0;
-  font-weight: 600;
-  color: rgb(29, 29, 29);
 }
