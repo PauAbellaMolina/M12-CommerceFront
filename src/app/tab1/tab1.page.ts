@@ -23,6 +23,7 @@ export class Tab1Page {
 
   scan() {
     this.data = null;
+
     this.barcodeScanner.scan().then(barcodeData => {
       this.data = barcodeData;
     }).catch(err => {

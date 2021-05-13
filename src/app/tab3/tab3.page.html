@@ -1,17 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Historial de transaccions
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-button (click)="loadTransactions()"><fa-icon [icon]="faSyncAlt" size="2x"></fa-icon></ion-button>
+      <ion-col *ngIf="!loading">
+        <app-transaction-card *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction-card>
+      </ion-col>
+      <ion-icon *ngIf="loading" style="font-size: 3.8em; width: 100%; margin-top: .6em;" src="assets/svgs/puff.svg"></ion-icon>
+    </ion-row>
+  </ion-grid>
 </ion-content>

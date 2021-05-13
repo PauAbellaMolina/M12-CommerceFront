@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,22 +12,48 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 export class Tab2Page implements OnInit {
 
   faSyncAlt = faSyncAlt;
+  recompenses: any;
+  loading: boolean;
+  data: any;
 
-  transactions: any;
-  constructor() {}
+  constructor(private barcodeScanner: BarcodeScanner) {}
 
   ngOnInit() {
-    this.loadTransactions();
+    this.loadRecompenses();
   }
 
-  loadTransactions() {
-    fetch(environment.API_URL+"/transactions/commerce/"+environment.commerceId)
+  loadRecompenses() {
+    this.loading = true;
+
+    fetch(environment.API_URL+"/recompenses/"+environment.commerceId)
       .then(async response => {
         const data = await response.json();
-        this.transactions = data['res'];
+        this.recompenses = data['res'];
+        this.loading = false;
       })
       .catch(error => {
         console.error("There was an error!", error);
+    });
+  }
+
+  scanRecompense() {
+    this.data = null;
+
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.data = barcodeData;
+
+      fetch(environment.API_URL+"/recompenses/used/"+environment.commerceId+"/"+this.data.text, { method: 'POST' })
+        .then(async response => {
+          const data = await response.json();
+          if(data['status'] == 1) {
+
+          }
+        })
+        .catch(error => {
+          console.error("There was an error!", error);
+      });
+    }).catch(err => {
+      console.log('Error', err);
     });
   }
 

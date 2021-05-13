@@ -9,7 +9,7 @@ ion-col {
   align-items: center;
 }
 
-ion-button {
+.reloadButton {
   position: fixed;
   z-index: 1;
   bottom: 8px;
@@ -17,4 +17,16 @@ ion-button {
   --border-radius: 100%;
   height: 50px;
   width: 50px;
+}
+
+.scanRecompenseButton {
+  position: fixed;
+  z-index: 1;
+  bottom: 8px;
+  left: 10px;
+  --border-radius: 10px;
+  height: 50px;
+  width: 75%;
+  font-weight: 900;
+  font-size: 1em;
 }
