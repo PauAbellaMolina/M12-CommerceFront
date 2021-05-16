@@ -19,9 +19,9 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-button color="danger" *ngIf="recompense?.active == 1 && !loading" (click)="desactivateRecompense()">Desactivar</ion-button>
-      <ion-button color="danger" *ngIf="recompense?.active == 1 && loading"><ion-icon style="font-size: 2em;" src="assets/svgs/puff.svg"></ion-icon></ion-button>
-      <ion-button *ngIf="recompense?.active == 0 && !loading" (click)="activateRecompense()">Activar</ion-button>
+      <ion-button *ngIf="recompense?.active == 1 && !loading" (click)="desactivateRecompense()">Desactivar</ion-button>
+      <ion-button *ngIf="recompense?.active == 1 && loading"><ion-icon style="font-size: 2em;" src="assets/svgs/puff.svg"></ion-icon></ion-button>
+      <ion-button color="danger" *ngIf="recompense?.active == 0 && !loading" (click)="activateRecompense()">Activar</ion-button>
       <ion-button *ngIf="recompense?.active == 0 && loading"><ion-icon style="font-size: 2em;" src="assets/svgs/puff.svg"></ion-icon></ion-button>
     </ion-row>
   </div>

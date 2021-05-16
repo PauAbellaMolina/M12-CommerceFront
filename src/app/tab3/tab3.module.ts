@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { TransactionCardComponentModule } from '../transaction-card/transaction-card.module';
+import { NotificationCardComponentModule } from '../notification-card/notification-card.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -20,6 +21,7 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     Tab3PageRoutingModule,
     TransactionCardComponentModule,
+    NotificationCardComponentModule,
     FontAwesomeModule
   ],
   declarations: [Tab3Page]

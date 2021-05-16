@@ -1,0 +1,36 @@
+.notificationBox {
+  width: 100%;
+  min-height: 5em;
+  background-color: #3b3b3b;
+  border-radius: 15px;
+}
+.titleDate {
+  display: flex;
+  justify-content: space-between;
+}
+.detailsDate {
+  display: flex;
+  flex-flow: column;
+  text-align: end;
+  padding: .6em .6em 0 0;
+}
+
+h3 {
+  padding: .5em 0 0 .5em;
+  margin-top: 0;
+  font-size: 1.6em;
+  font-weight: 900;
+}
+span {
+  font-weight: 900;
+  font-size: .8em;
+  color: #979797;
+}
+
+p {
+  font-size: 14px;
+  margin: 0 0 .7em 1em;
+  padding: 0 0 .8em 0;
+  font-weight: 600;
+  color: white;
+}
