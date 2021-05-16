@@ -1,17 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Historial de transaccions
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-segment (ionChange)="changeViews($event)" value="notifications" mode="ios">
+    <ion-segment-button value="notifications">
+      <ion-label>Notificacions</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="history">
+      <ion-label>Historial</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid *ngIf="history">
+    <ion-row>
+      <ion-button (click)="loadTransactions()" class="reloadBtn"><fa-icon [icon]="faSyncAlt" size="2x"></fa-icon></ion-button>
+      <ion-col *ngIf="!loading">
+        <app-transaction-card *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction-card>
+      </ion-col>
+      <ion-icon *ngIf="loading" style="font-size: 3.8em; width: 100%; margin-top: .6em;" src="assets/svgs/puff.svg"></ion-icon>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="showNotifs" style="height: 87%;">
+    <ion-row style="display: flex; flex-flow: column; justify-content: space-between; align-items: center; height: 100%;">
+      <ion-col *ngIf="!loading" class="notificationsParentBox">
+        <app-notification-card *ngFor="let notification of notifications" [notification]="notification"></app-notification-card>
+      </ion-col>
+      <ion-icon *ngIf="loading" style="font-size: 3.8em; width: 100%; margin-top: .6em;" src="assets/svgs/puff.svg"></ion-icon>
+      <div class="notificationInputs">
+        <div style="display: flex; flex-flow: column; width: 100%;">
+          <input (keyup)="title($event)" type="text" name="title" placeholder="Titol" />
+          <textarea (keyup)="body($event)" name="body" placeholder="Descripció"></textarea>
+        </div>
+        <ion-button (click)="sendNotification()" class="sendNotifBtn">Enviar</ion-button>
+      </div>
+    </ion-row>
+  </ion-grid>
 </ion-content>

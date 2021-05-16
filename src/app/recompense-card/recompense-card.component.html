@@ -1,0 +1,28 @@
+<ion-grid>
+  <div class="background positioning">
+    <!-- <ion-row class="h-100 p-5 ion-justify-content-center" @click="() => router.push('tab2')"> -->
+    <ion-row class="recompenseInfoParent ion-justify-content-between">
+      <ion-col class="recompenseInfo">
+          <h3>{{ recompense?.title }}</h3>
+          <div class="recompenseInfoDetails">
+            <span class="points"><strong>{{ recompense?.points }}</strong> punts</span>
+          </div>
+          <div class="recompenseInfoDetails">
+            <span class="description">{{ recompense?.description }}</span>
+          </div>
+      </ion-col>
+      <ion-col style="max-width: 4.7em !important; padding: 0; margin: .3em .8em 0 0;">
+        <div class="quantityUsedParent">
+          <p class="uses">{{ recompense?.usedToday }}</p>
+          <p class="legend">utilitzades avui</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button *ngIf="recompense?.active == 1 && !loading" (click)="desactivateRecompense()">Desactivar</ion-button>
+      <ion-button *ngIf="recompense?.active == 1 && loading"><ion-icon style="font-size: 2em;" src="assets/svgs/puff.svg"></ion-icon></ion-button>
+      <ion-button color="danger" *ngIf="recompense?.active == 0 && !loading" (click)="activateRecompense()">Activar</ion-button>
+      <ion-button *ngIf="recompense?.active == 0 && loading"><ion-icon style="font-size: 2em;" src="assets/svgs/puff.svg"></ion-icon></ion-button>
+    </ion-row>
+  </div>
+</ion-grid>

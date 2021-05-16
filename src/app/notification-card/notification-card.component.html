@@ -1,0 +1,10 @@
+<div class="notificationBox">
+  <div class="titleDate">
+      <h3>{{ notification.title }}</h3>
+      <div class="detailsDate">
+          <span>{{ getDate(notification.created_at) }}</span>
+          <span>{{ getTime(notification.created_at) }}</span>
+      </div>
+  </div>
+  <p>{{ notification.body }}</p>
+</div>

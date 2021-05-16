@@ -10,10 +10,20 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 export class Tab1Page {
 
   data: any;
+  inputValue: number;
   constructor(private barcodeScanner: BarcodeScanner) {}
+
+  cancelTransaction() {
+    this.data = null;
+  }
+
+  onInputChange(event: any) {
+    this.inputValue = event.target.value;
+  }
 
   scan() {
     this.data = null;
+
     this.barcodeScanner.scan().then(barcodeData => {
       this.data = barcodeData;
     }).catch(err => {

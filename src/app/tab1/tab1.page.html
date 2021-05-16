@@ -1,18 +1,31 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<ion-header [translucent]="true">
+  <ion-toolbar>
     <ion-title>
-      Capacitor Ionic
+      Escaneja als compradors
     </ion-title>
-  </ion-toolbar>
-  <ion-toolbar color="primary">
-    <ion-grid class="justify-center">
-      <ion-text>Barcode Scanner Demo</ion-text>
-    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-grid class="d-flex flex-column ion-align-items-center">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="11">
+        <input type="number" name="payedAmount" placeholder="0.00€" value="{{ inputValue }}" (input)="onInputChange($event)" />
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="d-flex ion-justify-content-center" size="11">
+        <ng-template ></ng-template>
+        <ion-button *ngIf="!inputValue || inputValue <= 0" disabled="true">Escanejar QR</ion-button>
+        <ion-button *ngIf="inputValue > 0" (click)="scan()">Escanejar QR</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="data && data.text != ''">
+    <app-confirm-popup (onCancel)="cancelTransaction()" [amount]="inputValue" [data]="data.text"></app-confirm-popup>
+  </div>
+  <!-- <ion-card>
     <ion-card-content>
       <ion-text>This section shows the demo of how to scan a QRCode or Barcode to get the information</ion-text>
 
@@ -26,5 +39,5 @@
   <ion-item *ngIf="data">
     <ion-label position="stacked">Scan Information</ion-label>
     <ion-input [value]="data.text" readonly></ion-input>
-  </ion-item>
+  </ion-item> -->
 </ion-content>
