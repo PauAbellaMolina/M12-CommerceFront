@@ -78,7 +78,7 @@ export class Tab3Page implements OnInit {
   sendNotification() {
     let data = JSON.stringify({title: this.notifTitle, body: this.notifBody});
 
-    fetch(environment.API_URL+"/notifications/"+environment.commerceId, {method: "POST", body: data})
+    fetch(environment.API_URL+"/notifications/new/"+environment.commerceId, {method: "POST", body: data})
       .then(async response => {
         this.loadNotifications();
       })
